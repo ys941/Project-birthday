@@ -15,7 +15,7 @@ const CARDS = [
     ],
   },
   {
-    heading: "Happy Birthday Jaspreet Kaur",
+    heading: "Happy Birthday Jassi",
     body: [
       '"Happy Birthday! May this day be as sunny as your smile, and as beautiful as your heart. You deserve all the happiness in the world today and every day. May your journey through life be an adventure of discovery and growth."!',
     ],

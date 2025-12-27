@@ -29,7 +29,7 @@ export default function IntroScreen({ onNext }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          Hey Beautiful
+          Hey Jassi!!
         </motion.h1>
 
         <motion.p
