@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,31 +7,37 @@ import ComplimentsScreen from "@/components/screens/ComplimentsScreen";
 import MessageScreen from "@/components/screens/MessageScreen";
 import BirthdayCardScreen from "@/components/screens/BirthdayCardScreen";
 import FinalScreen from "@/components/screens/FinalScreen";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
-  const [currentScreen, setCurrentScreen] = useState(0)
+  const [currentScreen, setCurrentScreen] = useState(0);
 
   const screens = [
     <IntroScreen key="intro" onNext={() => setCurrentScreen(1)} />,
     <ComplimentsScreen key="compliments" onNext={() => setCurrentScreen(2)} />,
     <MessageScreen key="message" onNext={() => setCurrentScreen(3)} />,
-    <BirthdayCardScreen key="birthday-card" onNext={() => setCurrentScreen(4)} />,
+    <BirthdayCardScreen
+      key="birthday-card"
+      onNext={() => setCurrentScreen(4)}
+    />,
     <FinalScreen key="final" />,
-  ]
+  ];
 
   return (
-    <div className="min-h-screen overflow-hidden"
+    <div
+      className="min-h-screen overflow-hidden"
       style={{
-        background: "radial-gradient(125% 125% at 50% 10%, #050505 40%, #3f031cbb 100%)",
-      }}>
-
+        background:
+          "radial-gradient(125% 125% at 50% 10%, #050505 40%, #3f031cbb 100%)",
+      }}
+    >
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-6 md:p-6">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentScreen}
-            initial={{ opacity: 0, }}
-            animate={{ opacity: 1, }}
-            exit={{ opacity: 0, }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             {screens[currentScreen]}
@@ -46,9 +52,8 @@ export default function Home() {
         transition={{
           duration: 1,
         }}
-        className="fixed bottom-4 right-4 text-sm text-white/40 pointer-events-none z-50 font-light">
-        
-      </motion.div>
+        className="fixed bottom-4 right-4 text-sm text-white/40 pointer-events-none z-50 font-light"
+      ></motion.div>
     </div>
   );
 }
