@@ -1,59 +1,99 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
+import GlowButton from "@/components/GlowButton";
 
 export default function IntroScreen({ onNext }) {
   return (
     <div>
       <div className="place-items-center max-w-3xl text-center">
+        {/* Avatar with glow rings */}
         <motion.div
-          className="mb-8"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.5 }}
+          className="mb-10 relative inline-block"
+          initial={{ scale: 0, rotate: -8 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: 0.4, type: "spring", stiffness: 160, damping: 14 }}
         >
-          <div className="w-36 h-36 mx-auto rounded-full bg-linear-to-br from-pink-700/15 to-rose-700/15 flex items-end justify-center border-2 border-pink-400/25 backdrop-blur-sm overflow-hidden">
-            <motion.div>
-              <img
-                loading="lazy"
-                src="/gifs/waving.gif"
-                className="h-28 -mb-2"
-                alt="waving"
-              />
-            </motion.div>
+          {/* soft glow halo */}
+          <div className="absolute -inset-6 rounded-full bg-pink-500/20 blur-2xl animate-glow-pulse" />
+
+          {/* expanding ping rings */}
+          {[0, 1].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute inset-0 rounded-full border-2 border-pink-400/40"
+              animate={{ scale: [1, 1.45], opacity: [0.6, 0] }}
+              transition={{
+                duration: 2.4,
+                delay: i * 1.2,
+                repeat: Infinity,
+                ease: "easeOut",
+              }}
+            />
+          ))}
+
+          <div className="relative w-36 h-36 mx-auto rounded-full bg-linear-to-br from-pink-700/20 to-rose-700/20 flex items-end justify-center border-2 border-pink-400/40 backdrop-blur-sm overflow-hidden shadow-[0_0_40px_rgba(236,72,153,0.25)]">
+            <img
+              loading="lazy"
+              src="/gifs/waving.gif"
+              className="h-28 -mb-2"
+              alt="waving"
+            />
           </div>
+
+          {/* orbiting sparkles */}
+          <motion.div
+            className="absolute -top-2 -right-3"
+            animate={{ rotate: [0, 15, -10, 0], scale: [1, 1.25, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Sparkles className="w-6 h-6 text-pink-300" />
+          </motion.div>
+          <motion.div
+            className="absolute -bottom-1 -left-4"
+            animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{
+              duration: 2.4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.8,
+            }}
+          >
+            <Heart className="w-5 h-5 text-rose-400 fill-rose-400" />
+          </motion.div>
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-7xl w-full font-bold mb-4 bg-linear-to-r from-pink-400 via-rose-400 to-pink-400 bg-clip-text text-transparent font-dancing-script leading-tight"
+          className="text-6xl md:text-8xl w-full font-bold mb-5 text-shimmer font-dancing-script leading-tight pb-2"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
         >
-          Hey Dinky!!
+          Hey Name!!
         </motion.h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-foreground/90 mb-8"
+          className="text-xl md:text-2xl text-foreground/90 mb-10"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1.1, duration: 0.6 }}
         >
-          There’s something I want you to know.
+          There&rsquo;s something I want you to know&hellip;
         </motion.p>
 
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
         >
-          <motion.button
-            className="bg-linear-to-r from-pink-500 via-rose-500 to-pink-500 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-pink-500/25 transition-all relative overflow-hidden flex items-center gap-2 will-change-transform"
-            onClick={onNext}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span className="relative z-10">Open this </span>
-          </motion.button>
+          <GlowButton onClick={onNext}>
+            Open this
+            <motion.span
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.2, repeat: Infinity }}
+            >
+              <Heart className="w-5 h-5 fill-current" />
+            </motion.span>
+          </GlowButton>
         </motion.div>
       </div>
     </div>
