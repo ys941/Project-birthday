@@ -188,4 +188,6 @@ Your surprise will be live on a shareable link in under a minute. 🎁
 
 _If this put a smile on someone's face, it did its job._
 
+⭐ If you're borrowing it for someone of your own, star the repo — that's how the next person finds it.
+
 </div>
