@@ -114,8 +114,9 @@ Project birthday/
 ### Installation
 
 ```bash
-# 1. Move into the project folder
-cd "Project birthday"
+# 1. Clone the repo and move into it
+git clone https://github.com/ys941/Project-birthday.git
+cd Project-birthday
 
 # 2. Install dependencies
 npm install
