@@ -33,7 +33,7 @@ export default function FinalScreen() {
         <div className="relative w-40 h-40 p-4 rounded-full bg-pink-900/10 border-2 border-pink-400/40 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-[0_0_50px_rgba(236,72,153,0.3)]">
           <Image
             loading="lazy"
-            src="/gifs/cute.gif"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/gifs/cute.gif`}
             width={130}
             height={130}
             alt="cute gif"

@@ -14,6 +14,14 @@ a soft, glowing, five-screen journey that unfolds one sweet moment at a time. �
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
+<br/>
+
+[![Live demo](https://img.shields.io/badge/%E2%96%B6%20See%20it%20live-Live%20demo-EC4899?style=for-the-badge)](https://ys941.github.io/Project-birthday/)
+
+[![The intro screen — a waving character, a glowing greeting and an "Open this" button](docs/screenshots/intro.png)](https://ys941.github.io/Project-birthday/)
+
+*Swap in a name and your own words, deploy, and send the link.* If it made someone smile, a ⭐ is appreciated.
+
 </div>
 
 ---

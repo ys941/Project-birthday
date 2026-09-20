@@ -34,7 +34,7 @@ export default function IntroScreen({ onNext }) {
           <div className="relative w-36 h-36 mx-auto rounded-full bg-linear-to-br from-pink-700/20 to-rose-700/20 flex items-end justify-center border-2 border-pink-400/40 backdrop-blur-sm overflow-hidden shadow-[0_0_40px_rgba(236,72,153,0.25)]">
             <img
               loading="lazy"
-              src="/gifs/waving.gif"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH}/gifs/waving.gif`}
               className="h-28 -mb-2"
               alt="waving"
             />
